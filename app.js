@@ -10,10 +10,10 @@ function AddContact () {
 rl.question('Put the name of your contact please : ', (Name) => {
     if(Name.toLowerCase() === 'exit') {
         rl.close();
-        console.log(ContactList)
+        Display();
     }else{
     rl.question('Put the number of your contact please : ', (PhoneNumbr) => {
-        ContactList.push(Name,PhoneNumbr);
+        ContactList.push({Name,PhoneNumbr});
         AddContact();
     });
     }
@@ -21,4 +21,8 @@ rl.question('Put the name of your contact please : ', (Name) => {
 }
 AddContact();
 
-function 
+function Display () {
+    ContactList.forEach((contact)=> {
+        console.log(`Name : ${contact.Name} The Number phone : ${contact.PhoneNumbr}`);
+    });
+}
